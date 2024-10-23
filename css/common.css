@@ -1,0 +1,112 @@
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    /*background-image: linear-gradient(90deg, #214dfd 0%, #2962FF 30%, #2962FF 60%, #214dfd 100%);*/
+
+    > .container {
+        padding: 0 12px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /*position: relative;*/
+
+        .maskLogo {
+            position: absolute;
+            opacity: .05;
+            /*transform: translateY(50px) scale(0.9);*/
+            /*transform: scale(1.1) translateY(50px) translateX(-300px);*/
+            /*height: 600px;*/
+            pointer-events: none;
+            /*top: 0;*/
+            filter: grayscale(.8) invert(1);
+            /*width: 100vw;*/
+            height: 160px;
+            left: 50%;
+            /*transform: translateX(-50%);*/
+            object-fit: cover;
+            /*min-width: 1200px;*/
+
+            &.maskLogo2 {
+                opacity: .1;
+                height: 600px;
+                left: 0;
+            }
+        }
+
+        .searchBox {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            padding: 6px;
+
+            input {
+                padding: 4px;
+                background-color: transparent;
+            }
+
+            .button {
+                color: #444fff;
+                cursor: pointer;
+                transition: .2s;
+
+                &:hover {
+                    filter: brightness(1.5);
+                }
+            }
+        }
+    }
+
+    img.logo {
+        height: 88px;
+        filter: invert(1);
+        position: relative;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .tabBar {
+        width: 100vw;
+        min-width: 1200px;
+        display: flex;
+        justify-content: center;
+        background-image: linear-gradient(90deg, #444fff 0%, #8521ff 100%);
+        /*background-image: linear-gradient(90deg, #214dfd 0%, #2962FF 30%, #2962FF 60%, #214dfd 100%);*/
+
+        color: white;
+
+        .container {
+            justify-content: space-between;
+            display: flex;
+
+            a {
+                display: block;
+                padding: 24px 0;
+                flex: 1;
+                text-align: center;
+                position: relative;
+                cursor: pointer;
+                transition: .2s;
+                color: white;
+
+                &:hover {
+                    background-color: #ffffff10;
+                    filter: brightness(1.2);
+                }
+            }
+        }
+
+    }
+}
+
+header, main, footer {
+    .container {
+        width: 1200px;
+    }
+}
+
