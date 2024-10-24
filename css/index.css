@@ -1,0 +1,110 @@
+.banner {
+    width: 100vw;
+    min-width: 1200px;
+    display: flex;
+    height: 500px;
+    overflow: hidden;
+
+    .info {
+        width: 30%;
+        max-width: 520px;
+        box-sizing: border-box;
+        background-color: #4635de;
+        position: relative;
+        color: white;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 4vw;
+        gap: 20px;
+        z-index: 2;
+
+        .title {
+            font-weight: bold;
+            line-height: 1.4;
+
+        }
+
+        .content {
+            line-height: 1.8;
+            display: -webkit-box; /* 使用 flexbox 进行布局 */
+            -webkit-box-orient: vertical; /* 垂直排列 */
+            overflow: hidden; /* 隐藏超出部分 */
+            -webkit-line-clamp: 6; /* 限制显示行数为 6 行 */
+            color: #eee;
+            font-size: 14px;
+        }
+
+        &:after {
+            top: 0;
+            width: 0;
+            height: 0;
+            border-top: 500px solid transparent; /* 上边 */
+            border-left: 125px solid #4635de; /* 左边，颜色为蓝色 */
+            content: "";
+            position: absolute;
+            left: 100%;
+        }
+
+        &:before {
+            top: 0;
+            width: 150px; /* 梯形的宽度 */
+            height: 100%; /* 梯形的高度 */
+            background-color: #4635de; /* 梯形的颜色 */
+            clip-path: polygon(0 0, 20% 0, 100% 100%, 0% 100%);
+            opacity: .5;
+            content: "";
+            position: absolute;
+            left: 100%;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .change {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                img {
+                    height: 34px;
+                    filter: invert(1);
+                    opacity: .5;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .look {
+                padding: 8px 12px;
+                cursor: pointer;
+                /*border: 1px solid white;*/
+                font-size: 14px;
+
+                &:hover {
+                    background-color: white;
+                    color: #4635de;
+                }
+            }
+        }
+
+
+    }
+
+    > img {
+        height: 100%;
+        flex: 1;
+        object-fit: cover;
+        transition: 1s;
+        cursor: pointer;
+
+        &:hover {
+            scale: 1.025;
+        }
+    }
+}

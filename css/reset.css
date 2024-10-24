@@ -11,9 +11,15 @@ body, html, .container {
     border: 0;
     line-height: 1;
     min-width: 1200px;
-    box-sizing: content-box;
+    box-sizing: border-box;
+
+    * {
+        box-sizing: border-box;
+        transition: .2s;
+    }
 }
-input{
+
+input {
     outline: 0;
     padding: 0;
     margin: 0;
