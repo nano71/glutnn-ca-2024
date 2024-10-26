@@ -16,7 +16,8 @@ body, html, .container {
     min-width: 1200px;
     box-sizing: border-box;
     letter-spacing: 1px;
-    line-height: 1.6;
+    line-height: 1.5;
+
     * {
         box-sizing: border-box;
         transition: .2s;

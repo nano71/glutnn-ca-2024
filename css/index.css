@@ -1,5 +1,5 @@
 .banner {
-    width: 100vw;
+    /*width: 100vw;*/
     min-width: 1200px;
     display: flex;
     height: 500px;
@@ -118,7 +118,7 @@ main {
     }
 
     .flex {
-        gap: 30px;
+        gap: 40px;
     }
 
     .titleBar {
@@ -222,7 +222,7 @@ main {
                     position: relative;
 
                     .title {
-                        height: 52px;
+                        height: 48px;
                         width: 100%;
                         margin-bottom: 20px;
                     }
@@ -239,7 +239,7 @@ main {
 
                 .date {
                     position: absolute;
-                    top: calc(250px - 20px);
+                    top: calc(252px - 20px);
                     height: 26px;
                     text-align: center;
                     color: #fff;
@@ -252,7 +252,7 @@ main {
                 }
 
                 .cover {
-                    height: 250px;
+                    height: 252px;
                     overflow: hidden;
                     width: 100%;
                     border: 2px solid white;
@@ -272,7 +272,7 @@ main {
                     height: 10px;
                     position: absolute;
                     border: 0 solid #fff;
-                    transition: all 1s;
+                    transition: all .5s;
                     z-index: 2;
                 }
 
@@ -310,11 +310,98 @@ main {
                         height: 100%;
                     }
                 }
+
             }
         }
     }
 
     .notice {
         width: 350px;
+        display: flex;
+        flex-direction: column;
+
+        .list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .item {
+                /*height: 70px;*/
+                display: flex;
+                flex: 1;
+                align-items: center;
+                gap: 20px;
+                cursor: pointer;
+                position: relative;
+
+                .date {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 2px;
+                    color: #4635de;
+                    padding: 0 8px;
+                    border-radius: 4px;
+                    border: 1px solid #646CFF;
+                    transition: .5s background-color;
+
+                    .line {
+                        width: 34px;
+                        rotate: -10deg;
+                        height: 1px;
+                        background-color: #646CFF;
+                    }
+
+                    .day {
+                        font-size: 20px;
+                    }
+
+                    .month {
+                        font-size: 12px;
+                        /*color: #999;*/
+                    }
+                }
+
+                .title {
+                    flex: 1;
+                }
+
+                &:hover {
+                    .title {
+                        color: #4635de;
+                    }
+
+                    .date {
+                        background-color: #646CFF;
+
+                        color: white;
+
+                        .line {
+                            background-color: #fff;
+                        }
+                    }
+                }
+
+                &:after {
+                    position: absolute;
+                    content: "";
+                    height: 1px;
+                    /*width: 80%;*/
+                    /*left: 50%;*/
+                    /*transform: translateX(-50%);*/
+                    width: 100%;
+                    bottom: -15px;
+                    background-color: #eee;
+                    pointer-events: none;
+                }
+
+                &:last-child:after {
+                    display: none;
+                }
+            }
+        }
     }
 }
