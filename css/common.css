@@ -143,6 +143,7 @@ footer {
     }
 
     .container {
+        padding: 0 12px;
         position: relative;
         height: 100%;
         align-items: center;
