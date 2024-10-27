@@ -102,6 +102,7 @@
         object-fit: cover;
         transition: 1s;
         cursor: pointer;
+        background-color: #F2F3F9;
 
         &:hover {
             scale: 1.025;
@@ -265,6 +266,8 @@ main {
                         height: 100%;
                         width: 100%;
                         transition: 1s;
+                        background-color: #F2F3F9;
+
                     }
                 }
 
@@ -487,6 +490,8 @@ main {
                         position: relative;
                         z-index: 1;
                         transition: 1s;
+                        background-color: #efefef;
+
                     }
 
 
@@ -580,6 +585,7 @@ main {
         .party {
             .flex {
                 gap: 30px;
+                width: 100%;
             }
 
             .cover {
@@ -597,6 +603,8 @@ main {
                     flex: 1;
                     object-fit: cover;
                     transition: 1s;
+                    background-color: #F2F3F9;
+
                 }
 
                 .content {
@@ -708,11 +716,13 @@ main {
                 width: calc(50% - 5px);
                 height: calc(50% - 5px);
                 position: relative;
+                cursor: pointer;
 
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    background-color: #fff;
                 }
 
                 .title {
