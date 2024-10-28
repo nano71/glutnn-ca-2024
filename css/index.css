@@ -717,12 +717,24 @@ main {
                 height: calc(50% - 5px);
                 position: relative;
                 cursor: pointer;
-
+                overflow: hidden;
+                &:before {
+                    left: 0;
+                    top: 0;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    content: "";
+                    background-color: #523fff;
+                    opacity: .2;
+                    z-index: 1;
+                }
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                     background-color: #fff;
+                    transition: 1s;
                 }
 
                 .title {
@@ -732,12 +744,46 @@ main {
                     background-color: #4635de;
                     color: white;
                     padding: 4px 8px;
+                    z-index: 1;
+                }
+
+                &:hover {
+                    img {
+                        scale: 1.025;
+                    }
                 }
             }
 
             > .card {
                 height: 100%;
                 width: 40%;
+                position: relative;
+                display: flex;
+                /*align-items: center;*/
+                justify-content: center;
+                flex-direction: column;
+
+                .title, .subtitle {
+                    position: unset;
+                    z-index: 1;
+                    background-color: transparent;
+                }
+
+                .title {
+                    font-size: 22px;
+                    padding-left: 20px;
+                }
+
+                .subtitle {
+                    color: #fff;
+                    padding-left: 20px;
+
+                }
+
+                img {
+                    position: absolute;
+                }
+
             }
 
             .right {
