@@ -12,12 +12,18 @@
         background-color: #4635de;
         position: relative;
         color: white;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+
         padding: 4vw;
-        gap: 30px;
         z-index: 2;
+
+        .animationBox {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+            height: 100%;
+        }
+
         @media screen and (max-width: 1200px) {
             padding: 48px;
         }
@@ -204,7 +210,8 @@ main {
 
     .news {
         flex: 1;
-
+        transform: translateY(5%);
+        opacity: 0;
         .list {
             display: flex;
             flex-wrap: wrap;
@@ -325,7 +332,8 @@ main {
         width: 350px;
         display: flex;
         flex-direction: column;
-
+        transform: translateY(5%);
+        opacity: 0;
         .list {
             flex: 1;
             display: flex;
@@ -718,6 +726,7 @@ main {
                 position: relative;
                 cursor: pointer;
                 overflow: hidden;
+
                 &:before {
                     left: 0;
                     top: 0;
@@ -729,6 +738,7 @@ main {
                     opacity: .2;
                     z-index: 1;
                 }
+
                 img {
                     width: 100%;
                     height: 100%;

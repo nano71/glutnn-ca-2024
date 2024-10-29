@@ -171,9 +171,11 @@ footer {
 
         .link {
             color: #666;
-            &:after{
+
+            &:after {
                 content: "↵";
             }
+
             &:hover {
                 color: #4635de;
             }
@@ -277,4 +279,55 @@ header, main, footer {
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 5;
+}
+
+.toUpShow {
+    animation: .5s toUpShow both;
+
+    &.delay {
+        animation-duration: .7s;
+    }
+}
+
+.toDownHide {
+    animation: .5s toDownHide both;
+}
+
+.toRightShow {
+    animation: .5s toRightShow both;
+}
+
+@keyframes toUpShow {
+    0% {
+        transform: translateY(5%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toRightShow {
+    0% {
+        transform: translateX(-25%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toDownHide {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(5%);
+        opacity: 0;
+    }
+
 }
