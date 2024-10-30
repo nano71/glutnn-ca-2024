@@ -419,19 +419,26 @@ main {
         }
     }
 
+
+    .background {
+        /*position: absolute;*/
+        /*left: 0;*/
+        /*top: 0;*/
+        background-color: #F2F3F9;
+        width: 100%;
+        /*height: 567px;*/
+        /*transform: translateY(-40px);*/
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
+    }
+
     .secondHalf {
 
-
-        .background {
-            position: absolute;
-            left: 0;
-            /*top: 0;*/
-            background-color: #F2F3F9;
-            width: 100%;
-            height: 567px;
-            transform: translateY(-40px);
-            z-index: -1;
-        }
 
         .studentWork, .party {
             display: flex;

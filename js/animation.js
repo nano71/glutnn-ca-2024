@@ -1,54 +1,89 @@
 function initializeAnimation() {
+    console.log("initializeAnimation")
+
+    /**
+     *
+     * @param element {HTMLElement}
+     * @return {number}
+     */
+    function getOffsetTop(element) {
+        return Math.floor(element.getBoundingClientRect().top + scrollY)
+    }
+
+    function generateUUID() {
+        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+        )
+    }
+
+    /**
+     * @type {NodeListOf<HTMLElement>}
+     */
     const animationBoxList = document.querySelectorAll(".animationBox");
-
-    const observerOptions = {
-        root: null, // 使用视口作为根元素
-        rootMargin: '0px',
-        threshold: [0.3, 0.5] // 一旦元素进入视口就触发
-    };
-
-
-    const lastObservedY = new Map(); // 用于存储上一个元素的 Y 位置
-    const observerCallback = (entries) => {
-        entries.forEach((entry, index) => {
-            const currentY = entry.boundingClientRect.top;
-
-            if (entry.isIntersecting) {
-                // 检查是否是第二个相同 Y 位置的元素
-                if (lastObservedY.has(currentY) && lastObservedY.get(currentY) === true) {
-                    // 延迟 300 毫秒
-                    setTimeout(() => {
-                        entry.target.classList.add('toUpShow');
-                        entry.target.classList.remove('toDownHide');
-                    }, 200);
-                } else {
-                    entry.target.classList.add('toUpShow');
-                    entry.target.classList.remove('toDownHide');
-                }
-                lastObservedY.set(currentY, true);
-            } else {
-                if (currentY <= 0)
-                    return
-                // 元素离开视口时添加类
-                entry.target.classList.add('toDownHide');
-                entry.target.classList.remove('toUpShow');
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const sensitiveObserver = new IntersectionObserver(observerCallback, {
-        ...observerOptions,
-        threshold: [0, 0.1]
-    });
+    const threshold = .2
+    const sensitiveThreshold = 0
+    /**
+     *
+     * @type {Object<HTMLElement>}
+     */
+    const animationBoxMap = {}
+    const offsetLeftMap = {}
+    const offsetTimeMap = {};
+    const offsetTopMap = {};
+    const groupedByOffsetTop = {};
+    const statusMap = {}
 
     animationBoxList.forEach(element => {
-        if (element.className.includes("sensitive")) {
-            sensitiveObserver.observe(element);
-        } else
-            observer.observe(element);
+        const uuid = generateUUID();
+        animationBoxMap[uuid] = element
+        offsetLeftMap[uuid] = element.offsetLeft
+        const offsetTop = getOffsetTop(element)
+        offsetTopMap[uuid] = offsetTop
+        if (!groupedByOffsetTop[offsetTop])
+            groupedByOffsetTop[offsetTop] = []
+        groupedByOffsetTop[offsetTop].push(uuid)
     });
+
+    for (const topValue in groupedByOffsetTop) {
+        if (groupedByOffsetTop[topValue].length === 1) continue;
+
+        const uuids = groupedByOffsetTop[topValue];
+
+        uuids.sort((a, b) => offsetLeftMap[a] - offsetLeftMap[b]);
+
+        uuids.forEach((uuid, index) => {
+            offsetTimeMap[uuid] = index * 100;
+        });
+    }
+
+    function listener() {
+        const baselineOffsetTop = Math.floor(innerHeight + scrollY)
+        for (let uuid in animationBoxMap) {
+            const animationBox = animationBoxMap[uuid]
+            const isSensitive = animationBox.className.includes("sensitive")
+            // 负值: 还未到视口里 ; 正值: 出现在视口里了
+            const distance = baselineOffsetTop - offsetTopMap[uuid]
+            const finalThreshold = isSensitive ? sensitiveThreshold : threshold
+            let canShow = distance > finalThreshold * innerHeight
+
+            if (canShow) {
+                if (statusMap[uuid] === 1) continue
+                statusMap[uuid] = 1
+                setTimeout(() => {
+                    animationBox.classList.add('toUpShow')
+                    animationBox.classList.remove('toDownHide')
+                }, offsetTimeMap[uuid] || 0)
+            } else {
+                if (statusMap[uuid] === 0) continue
+                statusMap[uuid] = 0
+                animationBox.classList.add('toDownHide')
+                animationBox.classList.remove('toUpShow')
+            }
+        }
+    }
+
+    window.addEventListener("scroll", listener)
+    listener()
 }
 
-// 调用初始化函数
 initializeAnimation();

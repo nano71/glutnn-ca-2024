@@ -281,25 +281,26 @@ header, main, footer {
     -webkit-line-clamp: 5;
 }
 
-.toUpShow {
-    animation: .5s toUpShow both;
+.animationBox {
+    animation-duration: .5s;
+    animation-fill-mode: both;
+}
 
-    &.delay {
-        animation-duration: .7s;
-    }
+.toUpShow {
+    animation-name: toUpShow;
 }
 
 .toDownHide {
-    animation: .5s toDownHide both;
+    animation-name: toDownHide;
 }
 
 .toRightShow {
-    animation: .5s toRightShow both;
+    animation-name: toRightShow;
 }
 
 @keyframes toUpShow {
     0% {
-        transform: translateY(5%);
+        transform: translateY(50px);
         opacity: 0;
     }
     100% {
@@ -310,7 +311,7 @@ header, main, footer {
 
 @keyframes toRightShow {
     0% {
-        transform: translateX(-25%);
+        transform: translateX(-50px);
         opacity: 0;
     }
     100% {
@@ -326,7 +327,7 @@ header, main, footer {
     }
 
     100% {
-        transform: translateY(5%);
+        transform: translateY(50px);
         opacity: 0;
     }
 
