@@ -318,6 +318,7 @@ footer {
     img.logo {
         height: 66px;
         /*filter: invert(1);*/
+        filter: unset !important;
         position: relative;
         pointer-events: none;
         user-select: none;
