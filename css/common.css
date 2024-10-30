@@ -29,12 +29,14 @@
         }
 
         &.logo {
+            display: none;
             width: 250px;
             transform: translate(-50%, -100%)
         }
 
         &.welcome {
-            transform: translate(-50%, 100%)
+            /*transform: translate(-50%, 100%)*/
+            transform: translate(-50%, 0)
         }
     }
 
@@ -160,7 +162,7 @@ header {
 
     img.logo {
         height: 88px;
-        filter: invert(1) !important;
+        filter: invert(0) !important;
         position: relative;
         pointer-events: none;
         user-select: none;
@@ -318,7 +320,7 @@ footer {
     img.logo {
         height: 66px;
         /*filter: invert(1);*/
-        filter: unset !important;
+        filter: invert(1) !important;
         position: relative;
         pointer-events: none;
         user-select: none;
