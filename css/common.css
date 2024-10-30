@@ -1,3 +1,99 @@
+#welcome {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 71;
+
+    .text {
+        font-size: 16px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 73;
+        transform: translate(-50%, -50%)
+    }
+
+    img {
+        width: 150px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 73;
+        opacity: 0;
+        transition: .5s;
+        filter: grayscale(0%);
+
+        &.show {
+            opacity: 1
+        }
+
+        &.logo {
+            width: 250px;
+            transform: translate(-50%, -100%)
+        }
+
+        &.welcome {
+            transform: translate(-50%, 100%)
+        }
+    }
+
+    .box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 72;
+        height: 100%;
+        width: 100%;
+
+        span {
+            flex: 1;
+            max-height: 100vh;
+            width: 200%;
+            transform: rotate(-30deg) scale(1.5);
+            background-color: #fff;
+            transition: .5s;
+        }
+
+        .top {
+            transform: rotate(-30deg) scale(3) translateY(-40%);
+        }
+
+        .bottom {
+            transform: rotate(-30deg) scale(3) translateY(40%);
+        }
+    }
+
+    &.end {
+        visibility: hidden;
+
+        img {
+            display: none
+        }
+
+        .box {
+            span {
+                background-color: #646cff
+            }
+
+            .middle {
+                max-height: 0
+            }
+
+            .top {
+                transform: rotate(-30deg) scale(3) translateY(-100%)
+            }
+
+            .bottom {
+                transform: rotate(-30deg) scale(3) translateY(100%)
+            }
+        }
+    }
+
+}
+
 
 header {
     display: flex;
@@ -23,7 +119,7 @@ header {
             /*height: 600px;*/
             pointer-events: none;
             /*top: 0;*/
-            filter: grayscale(.8) invert(1);
+            filter: grayscale(.8) invert(1) !important;
             /*width: 100vw;*/
             height: 160px;
             left: 50%;
@@ -64,7 +160,7 @@ header {
 
     img.logo {
         height: 88px;
-        filter: invert(1);
+        filter: invert(1) !important;
         position: relative;
         pointer-events: none;
         user-select: none;

@@ -22,6 +22,10 @@
             flex-direction: column;
             gap: 30px;
             height: 100%;
+
+            &.toUpShow {
+                animation-name: toRightShow !important;
+            }
         }
 
         @media screen and (max-width: 1200px) {
@@ -210,8 +214,7 @@ main {
 
     .news {
         flex: 1;
-        transform: translateY(5%);
-        opacity: 0;
+
         .list {
             display: flex;
             flex-wrap: wrap;
@@ -332,8 +335,7 @@ main {
         width: 350px;
         display: flex;
         flex-direction: column;
-        transform: translateY(5%);
-        opacity: 0;
+
         .list {
             flex: 1;
             display: flex;
@@ -421,14 +423,8 @@ main {
 
 
     .background {
-        /*position: absolute;*/
-        /*left: 0;*/
-        /*top: 0;*/
         background-color: #F2F3F9;
         width: 100%;
-        /*height: 567px;*/
-        /*transform: translateY(-40px);*/
-        z-index: -1;
         display: flex;
         justify-content: center;
         align-items: center;

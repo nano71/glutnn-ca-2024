@@ -6,6 +6,11 @@ a {
 
 img {
     display: block;
+    filter: opacity(0%) blur(5px);
+
+    &.show {
+        filter: opacity(100%);
+    }
 }
 
 body, html, .container {

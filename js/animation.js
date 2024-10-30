@@ -11,9 +11,7 @@ function initializeAnimation() {
     }
 
     function generateUUID() {
-        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-        )
+        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16))
     }
 
     /**
@@ -32,6 +30,7 @@ function initializeAnimation() {
     const offsetTopMap = {};
     const groupedByOffsetTop = {};
     const statusMap = {}
+    let initialized = false
 
     animationBoxList.forEach(element => {
         const uuid = generateUUID();
@@ -39,8 +38,7 @@ function initializeAnimation() {
         offsetLeftMap[uuid] = element.offsetLeft
         const offsetTop = getOffsetTop(element)
         offsetTopMap[uuid] = offsetTop
-        if (!groupedByOffsetTop[offsetTop])
-            groupedByOffsetTop[offsetTop] = []
+        if (!groupedByOffsetTop[offsetTop]) groupedByOffsetTop[offsetTop] = []
         groupedByOffsetTop[offsetTop].push(uuid)
     });
 
@@ -57,13 +55,13 @@ function initializeAnimation() {
     }
 
     function listener() {
-        const baselineOffsetTop = Math.floor(innerHeight + scrollY)
+        const baselineOffsetTop = initialized ? Math.floor(innerHeight + scrollY) : 0
         for (let uuid in animationBoxMap) {
             const animationBox = animationBoxMap[uuid]
             const isSensitive = animationBox.className.includes("sensitive")
             // 负值: 还未到视口里 ; 正值: 出现在视口里了
             const distance = baselineOffsetTop - offsetTopMap[uuid]
-            const finalThreshold = (isSensitive || (offsetTopMap[uuid] < innerHeight)) ? sensitiveThreshold : threshold
+            const finalThreshold = isSensitive ? sensitiveThreshold : threshold
             let canShow = distance > finalThreshold * innerHeight
 
             if (canShow) {
@@ -80,10 +78,11 @@ function initializeAnimation() {
                 animationBox.classList.remove('toUpShow')
             }
         }
+        if (!initialized) initialized = true
     }
 
     window.addEventListener("scroll", listener)
     listener()
 }
 
-initializeAnimation();
+// initializeAnimation();
