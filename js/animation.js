@@ -32,7 +32,6 @@ function initializeAnimation() {
     const offsetTopMap = {};
     const groupedByOffsetTop = {};
     const statusMap = {}
-    let initialized = false
 
     animationBoxList.forEach(element => {
         const uuid = generateUUID();
@@ -64,7 +63,7 @@ function initializeAnimation() {
             const isSensitive = animationBox.className.includes("sensitive")
             // 负值: 还未到视口里 ; 正值: 出现在视口里了
             const distance = baselineOffsetTop - offsetTopMap[uuid]
-            const finalThreshold = (isSensitive || !initialized || (offsetTopMap[uuid] < innerHeight)) ? sensitiveThreshold : threshold
+            const finalThreshold = (isSensitive || (offsetTopMap[uuid] < innerHeight)) ? sensitiveThreshold : threshold
             let canShow = distance > finalThreshold * innerHeight
 
             if (canShow) {
@@ -81,7 +80,6 @@ function initializeAnimation() {
                 animationBox.classList.remove('toUpShow')
             }
         }
-        initialized = true
     }
 
     window.addEventListener("scroll", listener)
