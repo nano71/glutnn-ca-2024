@@ -1,4 +1,6 @@
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", onDOMContentLoaded)
+
+function onDOMContentLoaded() {
     const welcome = document.querySelector("#welcome")
     if (welcome) {
         setTimeout(() => {
@@ -9,4 +11,4 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 500)
     } else
         animationMap.listener()
-})
+}

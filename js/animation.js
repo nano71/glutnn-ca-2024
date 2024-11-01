@@ -28,6 +28,7 @@ const animationMap = {
     offsetTopMap: {},
     statusMap: {},
     initialized: false,
+    firstRun: false,
     initialize() {
         const groupedByOffsetTop = {}
         this.animationBoxList.forEach(element => {
@@ -50,6 +51,7 @@ const animationMap = {
         }
 
         window.addEventListener("scroll", this.listener)
+        this.initialized = true
     },
     listener() {
         const baselineOffsetTop = Math.floor(innerHeight + scrollY)
@@ -60,7 +62,7 @@ const animationMap = {
             const distance = baselineOffsetTop - animationMap.offsetTopMap[uuid]
             const finalThreshold = isSensitive ? animationMap.sensitiveThreshold : animationMap.threshold
             let canShow = distance > finalThreshold * innerHeight
-            if (!animationMap.initialized) {
+            if (!animationMap.firstRun) {
                 canShow = distance > 0
             }
             if (canShow) {
@@ -77,7 +79,7 @@ const animationMap = {
                 animationBox.classList.remove('toUpShow')
             }
         }
-        if (!animationMap.initialized) animationMap.initialized = true
+        if (!animationMap.firstRun) animationMap.firstRun = true
     }
 }
 animationMap.initialize()
