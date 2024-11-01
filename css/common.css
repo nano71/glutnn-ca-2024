@@ -386,7 +386,10 @@ header, main, footer {
 .animationBox {
     animation-duration: .5s;
     animation-fill-mode: both;
+    transform: translateY(50px);
+    opacity: 0;
 }
+
 
 .toUpShow {
     animation-name: toUpShow;
