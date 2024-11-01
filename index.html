@@ -7,14 +7,11 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="./favicon.ico">
     <title>计算机应用学院 - 桂林理工大学南宁分校</title>
 </head>
 <body>
-<div id="welcome" class="" data-v-9e8a1996="">
+<div id="welcome">
     <div class="box">
         <span class="top"></span>
         <span class="middle"></span>
@@ -23,6 +20,12 @@
     <img class="logo show" src="./img/计算机应用学院-b.png" alt="">
     <img class="welcome show" src="./img/welcome.png" alt="">
 </div>
+<script>
+    const [navigationEntry] = performance.getEntriesByType("navigation");
+    if (!(navigationEntry && navigationEntry.type === "reload")) {
+        document.querySelector("#welcome").remove()
+    }
+</script>
 <header>
     <div class="container">
         <!--        <img src="./img/校训.png" class="maskLogo" alt="">-->
@@ -81,7 +84,7 @@
                 <div class="titleBar">
                     <div class="title">新闻动态<span>News</span></div>
                     <div class="line"></div>
-                    <a href="" class="more">更多</a>
+                    <a href="./page/list.html" class="more">更多</a>
                 </div>
                 <div class="list">
                     <div class="card animationBox sensitive">

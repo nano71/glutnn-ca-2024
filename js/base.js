@@ -1,9 +1,15 @@
 window.addEventListener("DOMContentLoaded", () => {
     initializeAnimation();
-    setTimeout(() => {
-        document.querySelector("#welcome").classList.add("end")
+    const welcome = document.querySelector("#welcome")
+    if (welcome) {
+        welcome.classList.add("loaded")
         setTimeout(() => {
-            window.dispatchEvent(new Event("scroll"))
-        }, 200)
-    }, 500)
+            welcome.classList.add("end")
+            setTimeout(() => {
+                window.dispatchEvent(new Event("scroll"))
+            }, 200)
+        }, 500)
+    } else {
+        window.dispatchEvent(new Event("scroll"))
+    }
 })

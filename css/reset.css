@@ -22,7 +22,6 @@ body, html, .container {
     box-sizing: border-box;
     letter-spacing: 1px;
     line-height: 1.5;
-    font-family: "Noto Sans SC", serif;
 
     * {
         box-sizing: border-box;
