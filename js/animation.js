@@ -82,5 +82,3 @@ const animationMap = {
         if (!animationMap.firstRun) animationMap.firstRun = true
     }
 }
-animationMap.initialize()
-// initializeAnimation()

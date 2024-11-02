@@ -1,13 +1,14 @@
 window.addEventListener("DOMContentLoaded", onDOMContentLoaded)
 
 function onDOMContentLoaded() {
+    initializeImage();
+    animationMap.initialize()
     const welcome = document.querySelector("#welcome")
     if (welcome) {
+        welcome.classList.add("loaded")
         setTimeout(() => {
             welcome.classList.add("end")
-            setTimeout(() => {
-                animationMap.listener()
-            }, 200)
+            animationMap.listener()
         }, 500)
     } else
         animationMap.listener()

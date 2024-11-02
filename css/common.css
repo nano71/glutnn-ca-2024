@@ -24,12 +24,6 @@
         transition: .5s;
         filter: grayscale(0%);
 
-        &.logo {
-            display: none;
-            width: 250px;
-            transform: translate(-50%, -100%)
-        }
-
         &.welcome {
             /*transform: translate(-50%, 100%)*/
             transform: translate(-50%, 0)
@@ -61,6 +55,10 @@
             transition: .5s;
         }
 
+        .middle {
+            transform: rotate(-30deg) scale(1.5);
+        }
+
         .top {
             transform: rotate(-30deg) scale(3) translateY(-40%);
         }
@@ -79,19 +77,19 @@
 
         .box {
             span {
-                background-color: #646cff
+                background-color: #646cff;
             }
 
             .middle {
-                max-height: 0
+                transform: rotate(-30deg) scale(1.5, 0);
             }
 
             .top {
-                transform: rotate(-30deg) scale(3) translateY(-100%)
+                transform: rotate(-30deg) scale(3) translateY(-150%)
             }
 
             .bottom {
-                transform: rotate(-30deg) scale(3) translateY(100%)
+                transform: rotate(-30deg) scale(3) translateY(150%)
             }
         }
     }

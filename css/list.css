@@ -29,13 +29,14 @@ main {
         top: calc(400px - 122px);
         /*height: 166px;*/
         padding: 40px 12px;
-        align-items: center;
+        align-items: flex-end;
         gap: 20px;
         width: 1200px;
 
         .title {
             font-size: 34px;
             line-height: 1;
+            height: 42px;
         }
 
         .breadcrumb {
