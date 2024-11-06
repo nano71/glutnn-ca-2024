@@ -20,12 +20,7 @@
     </div>
     <img class="welcome show" src="../img/welcome.png" alt="">
 </div>
-<script>
-    const [navigationEntry] = performance.getEntriesByType("navigation");
-    if (!(navigationEntry && navigationEntry.type === "reload")) {
-        document.querySelector("#welcome").remove()
-    }
-</script>
+<script src="../js/welcome.js"></script>
 <header>
     <div class="container">
         <!--        <img src="./img/校训.png" class="maskLogo" alt="">-->
