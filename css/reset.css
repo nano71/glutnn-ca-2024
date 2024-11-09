@@ -35,3 +35,7 @@ input {
     margin: 0;
     border: 0;
 }
+
+html {
+    overflow-x: hidden;
+}
