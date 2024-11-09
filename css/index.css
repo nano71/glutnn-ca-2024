@@ -95,6 +95,7 @@
                 cursor: pointer;
                 /*border: 1px solid white;*/
                 font-size: 14px;
+                color: white;
 
                 &:hover {
                     background-color: white;
