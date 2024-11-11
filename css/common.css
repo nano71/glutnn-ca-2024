@@ -127,7 +127,7 @@ header {
             left: 50%;
             /*transform: translateX(-50%);*/
             object-fit: cover;
-            /*min-width: 1200px;*/
+            /*min-width: 1280px;*/
 
             &.maskLogo2 {
                 opacity: .1;
@@ -170,7 +170,7 @@ header {
 
     .tabBar {
         width: 100vw;
-        min-width: 1200px;
+        min-width: 1280px;
         display: flex;
         justify-content: center;
         background-image: linear-gradient(90deg, #444fff 0%, #8521ff 100%);
@@ -356,13 +356,13 @@ footer {
         filter: grayscale(.8) invert(1);
         right: 12px;
         object-fit: cover;
-        /*min-width: 1200px;*/
+        /*min-width: 1280px;*/
     }
 }
 
 header, main, footer {
     .container {
-        width: 1200px;
+        width: 1280px;
     }
 }
 
