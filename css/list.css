@@ -89,7 +89,7 @@ main {
         .box {
             display: flex;
             flex-direction: column;
-            background-color: #4635de;
+            background-image: linear-gradient(0deg, rgba(68, 79, 255, 0.95) 0%, rgba(133, 33, 255, 0.95) 100%);
             padding-top: 10px;
 
             .item {
