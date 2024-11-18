@@ -537,6 +537,7 @@ main {
                         .title {
                             margin-bottom: 20px;
                             max-height: 48px;
+                            height: 48px;
                             transition: none;
                             position: relative;
 
