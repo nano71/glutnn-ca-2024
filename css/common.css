@@ -143,6 +143,8 @@ header {
                 opacity: .1;
                 height: 600px;
                 left: 0;
+                width: 100%;
+                object-position: left;
             }
         }
 
