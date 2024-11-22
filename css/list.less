@@ -153,6 +153,7 @@ main {
                 align-items: center;
                 gap: 20px;
                 position: relative;
+                cursor: pointer;
 
                 &:not(:last-child):after {
                     position: absolute;
@@ -197,6 +198,12 @@ main {
                         margin-top: 10px;
                         font-size: 14px;
                         color: #666;
+                    }
+                }
+
+                &:hover {
+                    .title {
+                        color: #4635de;
                     }
                 }
             }
@@ -276,5 +283,9 @@ main {
             }
         }
 
+    }
+
+    .articleContent, .articleList {
+        flex: 1;
     }
 }
